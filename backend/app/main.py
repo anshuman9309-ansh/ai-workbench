@@ -8,6 +8,7 @@ Architecture:
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from app.llm_client import call_llm, get_client
 from app.models import LLMResponse, TextRequest
@@ -26,6 +27,14 @@ app = FastAPI(
     description="REST API for Summarize, Rewrite, Key Points, and Explain tasks.",
     version="1.0.0",
     lifespan=lifespan,
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000", "http://localhost:8000", "http://127.0.0.1:8000", "null"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 

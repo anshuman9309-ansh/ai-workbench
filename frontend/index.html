@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Workbench</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">AI LLM Workflow</p>
+          <h1>AI Text Transformer</h1>
+        </div>
+        <div class="status-pill" id="statusPill">Ready</div>
+      </header>
+
+      <main class="workspace-grid">
+        <section class="panel form-panel">
+          <div class="panel-header">
+            <h2>Select task</h2>
+          </div>
+
+          <label class="field-label" for="taskSelect">Task type</label>
+          <select id="taskSelect" aria-label="Select task type">
+            <option value="summarize">Summarize</option>
+            <option value="rewrite">Rewrite</option>
+            <option value="key-points">Key Points</option>
+            <option value="explain">Explain</option>
+          </select>
+
+          <label class="field-label" for="userInput">Text input</label>
+          <textarea
+            id="userInput"
+            rows="12"
+            placeholder="Enter the text you want to transform..."
+          ></textarea>
+
+          <div class="action-row">
+            <button id="runButton" class="primary-button" type="button">Run</button>
+            <button id="cancelButton" class="secondary-button" type="button">Cancel</button>
+          </div>
+
+          <div id="resultCard" class="result-card">
+            <h3>Latest response</h3>
+            <p id="resultPreview">No task has been run yet.</p>
+          </div>
+        </section>
+
+        <aside class="panel history-panel">
+          <div class="panel-header">
+            <h2>Recent runs</h2>
+          </div>
+          <div id="historyList" class="history-list" aria-live="polite"></div>
+        </aside>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
