@@ -6,7 +6,7 @@ from pydantic import BaseModel, Field
 class TextRequest(BaseModel):
     """Input text to process with an AI task."""
 
-    text: str = Field(..., min_length=1, max_lenght=10000, description="The text to process")
+    text: str = Field(..., min_length=1, max_length=10000, description="The text to process")
 
 
 class LLMResponse(BaseModel):
